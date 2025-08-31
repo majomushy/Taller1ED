@@ -1,58 +1,46 @@
+import java.util.Scanner;
+
 public class menu {
-    public void mostrarMenu() {
-        System.out.println("Bienvenido al sistema de gestion de personas");
-        System.out.println("1. Agregar persona");
-        System.out.println("2. Mostrar personas");
-        System.out.println("3. Eliminar persona");
-        System.out.println("4. Buscar persona");
-        System.out.println("5. Salir");
+    private Scanner sc = new Scanner(System.in);
 
-        java.util.Scanner scanner = new java.util.Scanner(System.in);
-        System.out.print("Seleccione una opcion: ");
-        int opcion = scanner.nextInt();
+    public int mostrarMenu() {
+        System.out.println("\n--- MENÚ ---");
+        System.out.println("1. Crear vector");
+        System.out.println("2. Ingresar persona");
+        System.out.println("3. Mostrar personas");
+        System.out.println("4. Eliminar persona");
+        System.out.println("5. Buscar persona");
+        System.out.println("0. Salir");
+        System.out.print("Elija una opción: ");
+        return sc.nextInt();
+    }
 
-        
+    public int pedirTamano() {
+        System.out.print("Ingrese el tamaño máximo del vector: ");
+        return sc.nextInt();
+    }
 
-        while (opcion != 4) {
-            switch (opcion) {
-                case 1:
-                    if (!vector.vectorLleno()) {
-                        System.out.print("Ingrese el nombre: ");
-                        String nombre = scanner.next();
-                        System.out.print("Ingrese el apellido: ");
-                        String apellido = scanner.next();
-                        System.out.print("Ingrese el peso: ");
-                        float peso = scanner.nextFloat();
-                        System.out.print("Ingrese la altura: ");
-                        float altura = scanner.nextFloat();
+    public persona ingresarPersona() {
+        sc.nextLine(); // limpiar buffer
+        System.out.print("Ingrese nombre: ");
+        String nombre = sc.nextLine();
+        System.out.print("Ingrese apellido: ");
+        String apellido = sc.nextLine();
+        System.out.print("Ingrese peso (kg): ");
+        float peso = sc.nextFloat();
+        System.out.print("Ingrese altura (m): ");
+        float altura = sc.nextFloat();
+        return new persona(nombre, apellido, peso, altura);
+    }
 
-                        persona p = new persona(nombre, apellido, peso, altura);
-                        vector.agregarPersona(p);
-                    } else {
-                        System.out.println("El vector esta lleno");
-                    }
-                    break;
-                case 2:
-                    vector.mostrarVector();
-                    break;
-                case 3:
-                    if (!vector.vectorVacio()) {
-                        System.out.print("Ingrese la posicion a eliminar (0 a " + vector.getIndice() + "): ");
-                        int posicion = scanner.nextInt();
-                        vector.eliminarPersona(posicion);
-                    } else {
-                        System.out.println("El vector esta vacio");
-                    }
-                    break;
-                default:
-                    System.out.println("Opcion no valida");
-            }
+    public int pedirPosicion() {
+        System.out.print("Ingrese la posición de la persona (0 = primera): ");
+        return sc.nextInt();
+    }
 
-            System.out.print("Seleccione una opcion: ");
-            opcion = scanner.nextInt();
-        }
-
-        System.out.println("Saliendo del sistema...");
-        scanner.close();
+    public String pedirNombre() {
+        sc.nextLine();
+        System.out.print("Ingrese el nombre a buscar: ");
+        return sc.nextLine();
     }
 }
