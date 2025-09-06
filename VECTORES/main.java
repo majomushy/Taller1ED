@@ -1,20 +1,20 @@
 public class main {
     public static void main(String[] args) {
         menu menu = new menu();
-        vectores vector = null;  // No creado hasta que el usuario lo elija
+        vectores vector = null;  
         boolean salir = false;
 
         while (!salir) {
             int opcion = menu.mostrarMenu();
 
             switch (opcion) {
-                case 1: // Crear vector
+                case 1: 
                     int tamano = menu.pedirTamano();
                     vector = new vectores(tamano);
                     System.out.println("Vector creado con capacidad de " + tamano + " personas.");
                     break;
 
-                case 2: // Ingresar persona
+                case 2: 
                     if (vector == null) {
                         System.out.println("Primero debe crear el vector.");
                     } else if (vector.vectorLleno()) {
@@ -26,7 +26,7 @@ public class main {
                     }
                     break;
 
-                case 3: // Mostrar personas
+                case 3: 
                     if (vector == null) {
                         System.out.println("Primero debe crear el vector.");
                     } else {
@@ -34,22 +34,26 @@ public class main {
                     }
                     break;
 
-                case 4: // Eliminar persona
+                case 4: 
                     if (vector == null || vector.vectorVacio()) {
                         System.out.println("No hay personas para eliminar.");
                     } else {
                         vector.mostrarVector();
-                        int pos = menu.pedirPosicion();
+                        String nombre = menu.pedirNombre("eliminar");
+                        int pos = vector.buscarPersona(nombre);
+                    if (pos != -1) {
+                    
                         vector.eliminarPersona(pos);
-                        System.out.println("Persona eliminada (si la posición era válida).");
+                        System.out.println("Persona eliminada.");
+                     }
                     }
                     break;
 
-                case 5: // Buscar persona
+                case 5: 
                     if (vector == null || vector.vectorVacio()) {
                         System.out.println("No hay personas para buscar.");
                     } else {
-                        String nombre = menu.pedirNombre();
+                        String nombre = menu.pedirNombre("buscar");
                         int pos = vector.buscarPersona(nombre);
                         if (pos != -1) {
                             persona encontrada = vector.getVectorPersona()[pos];
@@ -64,7 +68,7 @@ public class main {
                     }
                     break;
 
-                case 0: // Salir
+                case 0: 
                     salir = true;
                     System.out.println("¡Programa finalizado!");
                     break;

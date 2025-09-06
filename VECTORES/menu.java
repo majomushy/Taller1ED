@@ -21,7 +21,7 @@ public class menu {
     }
 
     public persona ingresarPersona() {
-        sc.nextLine(); // limpiar buffer
+        sc.nextLine(); 
         System.out.print("Ingrese nombre: ");
         String nombre = sc.nextLine();
         System.out.print("Ingrese apellido: ");
@@ -38,9 +38,9 @@ public class menu {
         return sc.nextInt();
     }
 
-    public String pedirNombre() {
+    public String pedirNombre( String variable) {
         sc.nextLine();
-        System.out.print("Ingrese el nombre a buscar: ");
+        System.out.print("Ingrese el nombre a " + variable );
         return sc.nextLine();
     }
 }
