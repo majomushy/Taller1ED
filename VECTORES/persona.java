@@ -1,16 +1,34 @@
 public class persona{
-    // 1 definir atributos
+    
     protected String nombre;
     protected String apellido;
+    protected int edad;
     protected float peso;
     protected float altura;
+    
 
-    //2. metodos constructores
-    public persona(String nombre, String apellido, float peso, float altura) {
+    @Override
+    public String toString() {
+    return "Nombre: " + nombre + 
+           ", Apellido: " + apellido + 
+           ",edad: " + edad +
+           ", Peso: " + peso + " kg" + 
+           ", Altura: " + altura + " m";
+}
+    public persona(String nombre, String apellido,int edad, float peso, float altura) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.edad = edad;
         this.peso = peso;
         this.altura = altura;
+
+        
+    }
+    public int getEdad() {
+        return edad;
+    }
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
     public persona(){
 
