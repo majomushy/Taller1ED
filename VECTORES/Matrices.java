@@ -144,8 +144,7 @@ public class Matrices {
         this.matrizPersona[fila][columna] = null;
         System.out.println("Persona eliminada de la posición [" + fila + "][" + columna + "].");
 
-        // Opcional: si eliminaste el último elemento insertado, actualizamos los
-        // índices
+        
         if (fila == this.indiceFila && columna == this.indiceColumna) {
             // Retroceder al elemento anterior
             if (this.indiceColumna == 0) {
@@ -165,8 +164,8 @@ public class Matrices {
         return true;
     }
 
-    // Mostrar solo la diagonal principal
-    public void mostrarDiagonalPrincipal(menu menu) {
+    
+    public void mostrarDiagonalPrincipal(MenuPrincipal menu) {
         if (this.filas != this.columnas) {
             System.out.println("La diagonal principal solo se muestra en matrices cuadradas.");
             return;
@@ -189,8 +188,8 @@ public class Matrices {
         System.out.println("=========================\n");
     }
 
-    // Mostrar solo la diagonal secundaria
-    public void mostrarDiagonalSecundaria(menu menu) {
+    
+    public void mostrarDiagonalSecundaria(MenuPrincipal menu) {
         if (this.filas != this.columnas) {
             System.out.println("La diagonal secundaria solo se muestra en matrices cuadradas.");
             return;
@@ -214,8 +213,8 @@ public class Matrices {
         System.out.println("===========================\n");
     }
 
-    // Mostrar ambas (la "X")
-    public void mostrarEnX(menu menu) {
+    
+    public void mostrarEnX(MenuPrincipal menu) {
         if (this.filas != this.columnas) {
             System.out.println("La forma 'X' solo está disponible para matrices cuadradas.");
             return;
@@ -245,7 +244,7 @@ public class Matrices {
         System.out.println("====================================\n");
     }
 
-    // 1. Promedio de EDAD de TODAS las personas en la matriz
+    
     public double calcularPromedioEdadTotal() {
         if (this.indiceFila == -1) {
             System.out.println("La matriz está vacía.");
@@ -269,7 +268,7 @@ public class Matrices {
         return (contador == 0) ? 0.0 : (double) sumaEdad / contador;
     }
 
-    // 2. Promedio de PESO solo en la DIAGONAL PRINCIPAL (solo si es cuadrada)
+    
     public double calcularPromedioPesoDiagonalPrincipal() {
         if (this.filas != this.columnas) {
             System.out.println("La diagonal principal solo existe en matrices cuadradas.");
@@ -294,7 +293,7 @@ public class Matrices {
         return (contador == 0) ? 0.0 : sumaPeso / contador;
     }
 
-    // 3. Promedio de ALTURA solo en la DIAGONAL SECUNDARIA (solo si es cuadrada)
+    
     public double calcularPromedioAlturaDiagonalSecundaria() {
         if (this.filas != this.columnas) {
             System.out.println("La diagonal secundaria solo existe en matrices cuadradas.");
